@@ -1,0 +1,130 @@
+field_name,hebrew_translation,display
+_id,מזהה רשומה,0
+mispar_rechev,מספר רכב,1
+tozeret_nm,יצרן,1
+tozeret_cd,קוד יצרן,0
+kinuy_mishari,כינוי מסחרי,1
+degem_nm,שם דגם,1
+degem_cd,קוד דגם,0
+degem_manoa,דגם מנוע,1
+sug_degem,סוג דגם,1
+shnat_yitzur,שנת ייצור,1
+moed_aliya_lakvish,מועד עליה לכביש,1
+horaat_rishum,הוראת רישום,1
+tzeva_rechev,צבע רכב,1
+tzeva_cd,קוד צבע,0
+sug_delek_nm,סוג דלק,1
+zmig_kidmi,צמיג קדמי,1
+zmig_ahori,צמיג אחורי,1
+ramat_gimur,רמת גימור,1
+ramat_eivzur_betihuty,רמת איבזור בטיחותי,1
+kvutzat_zihum,קבוצת זיהום,1
+baalut,בעלות,1
+misgeret,מספר שלדה (VIN),1
+mivchan_acharon_dt,טסט אחרון,1
+tokef_dt,תוקף רישיון,1
+kilometer_test_aharon,קילומטר בטסט אחרון,1
+rishum_rishon_dt,תאריך רישום ראשון,1
+mkoriut_nm,מקוריות,1
+taarich_rechashat_km,תאריך רכישת ק״מ,1
+baalut_dt,תאריך בעלות (YYYYMM),1
+mispar_manoa,מספר מנוע,1
+gapam_ind,מחוון גפם,1
+shinui_mivne_ind,מחוון שינוי מבנה,1
+shinui_zmig_ind,מחוון שינוי צמיג,1
+shnui_zeva_ind,מחוון שינוי צבע,1
+CO2_WLTP,פליטת CO2 (WLTP),1
+HC_WLTP,פליטת HC (WLTP),1
+PM_WLTP,פליטת PM (WLTP),1
+NOX_WLTP,פליטת NOx (WLTP),1
+CO_WLTP,פליטת CO (WLTP),1
+CO2_WLTP_NEDC,פליטת CO2 (WLTP-NEDC),1
+tzrihat_delek_manoa_bakir,צריכת דלק - מנוע בקיר,1
+tzrihat_delek_ironit,צריכת דלק - עירונית,1
+tzrihat_delek_kvish_huz,צריכת דלק - כביש חוץ,1
+tzrihat_delek_meshuleshet,צריכת דלק - משולשת,1
+tevah_hashmalit_wltp,טווח חשמלי (WLTP),1
+tevah_hashmalit_ironit_wltp,טווח חשמלי עירוני (WLTP),1
+abs_ind,ABS,1
+alco_lock,נעילת אלכוהול,1
+argaz_ind,ארגז,1
+automatic_ind,אוטומטי,1
+bakarat_mehirut_isa,בקרת מהירות ISA,1
+bakarat_shyut_adaptivit_ind,בקרת שיוט אדפטיבית,1
+bakarat_stiya_activ_s,בקרת סטייה אקטיבית,1
+bakarat_stiya_menativ_ind,בקרת סטייה מנתיב,1
+bakarat_stiya_menativ_makor_hatkana,בקרת סטייה מנתיב - מקור התקנה,1
+bakarat_yatzivut_ind,בקרת יציבות,1
+blima_otomatit_nesia_leahor,בלימה אוטומטית בנסיעה לאחור,1
+blimat_hirum_lifnei_holhei_regel_ofanaim,בלימת חירום לפני הולכי רגל/אופניים,1
+delek_cd,קוד דלק,0
+delek_nm,דלק,1
+dg_metach_solela,דגם מתח סוללה,1
+galgaley_sagsoget_kala_ind,גלגלי סגסוגת קלה,1
+gova,גובה,1
+halon_bagg_ind,חלון בגג,1
+halonot_hashmal_source,חלונות חשמל - מקור,0
+hanaa_cd,קוד הנעה,0
+hanaa_nm,הנעה,1
+hayshaney_hagorot_ind,חיישני חגורות,1
+hayshaney_lahatz_avir_batzmigim_ind,חיישני לחץ אוויר בצמיגים,1
+hege_koah_ind,הגה כוח,1
+hitnagshut_cad_shetah_met,התנגשות CAD שטח מת,1
+kamut_CO,כמות CO,1
+kamut_CO2,כמות CO2,1
+kamut_CO2_city,כמות CO2 עירוני,1
+kamut_CO2_hway,כמות CO2 כביש מהיר,1
+kamut_CO_city,כמות CO עירוני,1
+kamut_CO_hway,כמות CO כביש מהיר,1
+kamut_HC,כמות HC,1
+kamut_HC_NOX,כמות HC+NOx,1
+kamut_HC_city,כמות HC עירוני,1
+kamut_HC_hway,כמות HC כביש מהיר,1
+kamut_NOX,כמות NOx,1
+kamut_NOX_city,כמות NOx עירוני,1
+kamut_NOX_hway,כמות NOx כביש מהיר,1
+kamut_PM10,כמות PM10,1
+kamut_PM10_city,כמות PM10 עירוני,1
+kamut_PM10_hway,כמות PM10 כביש מהיר,1
+kariot_avir_source,כריות אוויר - מקור,0
+koah_sus,כוח סוס,1
+kosher_grira_bli_blamim,כושר גרירה ללא בלמים,1
+kosher_grira_im_blamim,כושר גרירה עם בלמים,1
+kvuzat_agra_cd,קבוצת אגרה,0
+maarechet_ezer_labalam_ind,מערכת עזר לבלם,1
+madad_yarok,מדד ירוק,1
+matzlemat_reverse_ind,מצלמת רוורס,1
+mazgan_ind,מזגן,1
+merkav,מרכב,1
+mishkal_kolel,משקל כולל,1
+mispar_dlatot,מספר דלתות,1
+mispar_halonot_hashmal,מספר חלונות חשמל,1
+mispar_kariot_avir,מספר כריות אוויר,1
+mispar_moshavim,מספר מושבים,1
+nefah_manoa,נפח מנוע,1
+nikud_betihut,ניקוד בטיחות,1
+nitur_merhak_milfanim_ind,ניטור מרחק מלפנים,1
+nitur_merhak_milfanim_makor_hatkana,ניטור מרחק מלפנים - מקור התקנה,0
+shlita_automatit_beorot_gvohim_ind,שליטה אוטומטית באורות גבוהים,1
+shlita_automatit_beorot_gvohim_makor_hatkana,שליטה אוטומטית באורות גבוהים - מקור התקנה,0
+sug_mamir_cd,קוד סוג ממיר,0
+sug_mamir_nm,סוג ממיר,1
+sug_tkina_cd,קוד סוג תקינה,0
+sug_tkina_nm,סוג תקינה,1
+technologiat_hanaa_cd,קוד טכנולוגיית הנעה,0
+technologiat_hanaa_nm,טכנולוגיית הנעה,1
+teura_automatit_benesiya_kadima_ind,תאורה אוטומטית בנסיעה קדימה,1
+tozar,תוצר,1
+tozeret_eretz_nm,ארץ ייצור,1
+zihuy_beshetah_nistar_ind,זיהוי בשטח נסתר,1
+zihuy_holchey_regel_ind,זיהוי הולכי רגל,1
+zihuy_holchey_regel_makor_hatkana,זיהוי הולכי רגל - מקור התקנה,1
+zihuy_matzav_hitkarvut_mesukenet_ind,זיהוי מצב התקרבות מסוכנת,1
+zihuy_rechev_do_galgali,זיהוי רכב דו-גלגלי,1
+zihuy_tamrurey_tnua_ind,זיהוי תמרורי תנועה,1
+zihuy_tamrurey_tnua_makor_hatkana,זיהוי תמרורי תנועה - מקור התקנה,1
+mehir_mevukash,מחיר מבוקש,1
+mehir,מחיר,1
+mehir_merhav,טווח מחירים,1
+shem_yevuan,שם יבואן,1
+semel_yevuan,סמל יבואן,0

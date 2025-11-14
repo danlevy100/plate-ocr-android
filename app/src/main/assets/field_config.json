@@ -1,0 +1,611 @@
+{
+  "sections": [
+    {
+      "id": 1,
+      "name_hebrew": "מידע בסיסי",
+      "name_english": "Basic Information",
+      "initially_expanded": true,
+      "fields": [
+        {
+          "field_name": "tozeret_nm",
+          "display_name_hebrew": "יצרן",
+          "display": true,
+          "type": "text"
+        },
+        {
+          "field_name": "tozeret_cd",
+          "display_name_hebrew": "קוד יצרן",
+          "display": false,
+          "type": "number"
+        },
+        {
+          "field_name": "kinuy_mishari",
+          "display_name_hebrew": "כינוי מסחרי",
+          "display": true,
+          "type": "text"
+        },
+        {
+          "field_name": "ramat_gimur",
+          "display_name_hebrew": "רמת גימור",
+          "display": true,
+          "type": "text"
+        },
+        {
+          "field_name": "degem_manoa",
+          "display_name_hebrew": "דגם מנוע",
+          "display": false,
+          "type": "text"
+        },
+        {
+          "field_name": "shnat_yitzur",
+          "display_name_hebrew": "שנת ייצור",
+          "display": true,
+          "type": "number"
+        },
+        {
+          "field_name": "moed_aliya_lakvish",
+          "display_name_hebrew": "מועד עליה לכביש",
+          "display": true,
+          "type": "date"
+        },
+        {
+          "field_name": "tzeva_rechev",
+          "display_name_hebrew": "צבע",
+          "display": true,
+          "type": "text"
+        },
+        {
+          "field_name": "tzeva_cd",
+          "display_name_hebrew": "קוד צבע",
+          "display": false,
+          "type": "number"
+        },
+        {
+          "field_name": "merkav",
+          "display_name_hebrew": "מרכב",
+          "display": true,
+          "type": "text"
+        },
+        {
+          "field_name": "tozar",
+          "display_name_hebrew": "יצרן",
+          "display": false,
+          "type": "text"
+        },
+        {
+          "field_name": "tozeret_eretz_nm",
+          "display_name_hebrew": "ארץ ייצור",
+          "display": true,
+          "type": "text"
+        },
+        {
+          "field_name": "sug_degem",
+          "display_name_hebrew": "סיווג",
+          "display": true,
+          "type": "mapped_text",
+          "value_mappings": {
+            "P": "פרטי מתחת 3.5 טון",
+            "M": "מסחרי מתחת 3.5 טון"
+          }
+        },
+        {
+          "field_name": "misgeret",
+          "display_name_hebrew": "מספר שלדה",
+          "display": true,
+          "type": "text"
+        },
+        {
+          "field_name": "degem_nm",
+          "display_name_hebrew": "שם דגם",
+          "display": true,
+          "type": "text"
+        },
+        {
+          "field_name": "degem_cd",
+          "display_name_hebrew": "קוד דגם",
+          "display": true,
+          "type": "number"
+        }
+
+      ]
+    },
+    {
+      "id": 2,
+      "name_hebrew": "פרטים חשובים",
+      "name_english": "Important Details",
+      "initially_expanded": false,
+      "fields": [
+        {
+          "field_name": "baalut",
+          "display_name_hebrew": "בעלות נוכחית",
+          "display": true,
+          "type": "text"
+        },
+        {
+          "field_name": "__custom_yad",
+          "display_name_hebrew": "יד",
+          "is_custom": true,
+          "display": true,
+          "type": "text"
+        },
+        {
+          "field_name": "kilometer_test_aharon",
+          "display_name_hebrew": "קילומטראז׳ בטסט אחרון",
+          "display": true,
+          "type": "number"
+        },
+        {
+          "field_name": "mivchan_acharon_dt",
+          "display_name_hebrew": "תאריך טסט אחרון",
+          "display": true,
+          "type": "date"
+        },
+        {
+          "field_name": "tokef_dt",
+          "display_name_hebrew": "תוקף רישיון",
+          "display": true,
+          "type": "date"
+        },
+        {
+          "field_name": "rishum_rishon_dt",
+          "display_name_hebrew": "רישום ראשון",
+          "display": false,
+          "type": "date"
+        },
+        {
+          "field_name": "mkoriut_nm",
+          "display_name_hebrew": "מקוריות",
+          "display": true,
+          "type": "text"
+        },
+        {
+          "field_name": "shem_yevuan",
+          "display_name_hebrew": "שם יבואן",
+          "display": true,
+          "type": "text"
+        },
+        {
+          "field_name": "__custom_msrp",
+          "display_name_hebrew": "מחיר יבואן",
+          "is_custom": true,
+          "display": true,
+          "type": "text"
+        },
+        {
+          "field_name": "__custom_use_value",
+          "display_name_hebrew": "שווי שימוש חודשי",
+          "is_custom": true,
+          "display": true,
+          "type": "text"
+        },
+        {
+          "field_name": "SUG_TOV",
+          "display_name_hebrew": "תו נכה",
+          "display": true,
+          "type": "boolean_existence",
+          "existence_display_value": "קיים",
+          "non_existence_display_value": "לא קיים"
+        },
+        {
+          "field_name": "__custom_recalls",
+          "display_name_hebrew": "ריקולים",
+          "is_custom": true,
+          "display": true,
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name_hebrew": "נתוני מנוע ומכניקה",
+      "name_english": "Engine & Mechanical",
+      "initially_expanded": false,
+      "fields": [
+        {
+          "field_name": "nefah_manoa",
+          "display_name_hebrew": "נפח מנוע (סמ\"ק)",
+          "display": true,
+          "type": "number"
+        },
+        {
+          "field_name": "koah_sus",
+          "display_name_hebrew": "הספק מנוע (כ\"ס)",
+          "display": true,
+          "type": "number"
+        },
+        {
+          "field_name": "delek_nm",
+          "display_name_hebrew": "סוג דלק",
+          "display": true,
+          "type": "text"
+        },
+        {
+          "field_name": "sug_delek_nm",
+          "display_name_hebrew": "דלק",
+          "display": false,
+          "type": "text"
+        },
+        {
+          "field_name": "hanaa_nm",
+          "display_name_hebrew": "הנעה",
+          "display": true,
+          "type": "text"
+        },
+        {
+          "field_name": "technologiat_hanaa_nm",
+          "display_name_hebrew": "טכנולוגיית הנעה",
+          "display": true,
+          "type": "text"
+        },
+        {
+          "field_name": "mispar_manoa",
+          "display_name_hebrew": "מספר מנוע",
+          "display": true,
+          "type": "text"
+        },
+        {
+          "field_name": "automatic_ind",
+          "display_name_hebrew": "תיבת הילוכים",
+          "display": true,
+          "type": "mapped_numeric",
+          "value_mappings": {
+            "1": "אוטומטי",
+            "0": "ידני"
+          }
+        },
+        {
+          "field_name": "sug_mamir_nm",
+          "display_name_hebrew": "סוג ממיר",
+          "display": true,
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name_hebrew": "מידות ומשקלים",
+      "name_english": "Dimensions & Weights",
+      "initially_expanded": false,
+      "fields": [
+        {
+          "field_name": "mishkal_kolel",
+          "display_name_hebrew": "משקל כולל (ק\"ג)",
+          "display": true,
+          "type": "number"
+        },
+        {
+          "field_name": "kosher_grira_im_blamim",
+          "display_name_hebrew": "כושר גרירה עם בלמים (ק\"ג)",
+          "display": true,
+          "type": "number"
+        },
+        {
+          "field_name": "kosher_grira_bli_blamim",
+          "display_name_hebrew": "כושר גרירה ללא בלמים (ק\"ג)",
+          "display": true,
+          "type": "number"
+        },
+        {
+          "field_name": "zmig_kidmi",
+          "display_name_hebrew": "מידה צמיג קדמי",
+          "display": true,
+          "type": "text"
+        },
+        {
+          "field_name": "zmig_ahori",
+          "display_name_hebrew": "מידה צמיג אחורי",
+          "display": true,
+          "type": "text"
+        },
+        {
+          "field_name": "gova",
+          "display_name_hebrew": "גובה",
+          "display": true,
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name_hebrew": "אבזור ופרטים נוספים",
+      "name_english": "Equipment & Additional Details",
+      "initially_expanded": false,
+      "fields": [
+        {
+          "field_name": "horaat_rishum",
+          "display_name_hebrew": "הוראת רישום",
+          "display": true,
+          "type": "number"
+        },
+        {
+          "field_name": "mispar_moshavim",
+          "display_name_hebrew": "מספר מושבים",
+          "display": true,
+          "type": "number"
+        },
+        {
+          "field_name": "mispar_dlatot",
+          "display_name_hebrew": "מספר דלתות",
+          "display": true,
+          "type": "number"
+        },
+        {
+          "field_name": "mispar_halonot_hashmal",
+          "display_name_hebrew": "חלונות חשמל",
+          "display": true,
+          "type": "number"
+        },
+        {
+          "field_name": "mispar_kariot_avir",
+          "display_name_hebrew": "כריות אוויר",
+          "display": true,
+          "type": "number"
+        },
+        {
+          "field_name": "sug_tkina_nm",
+          "display_name_hebrew": "סוג תקינה",
+          "display": true,
+          "type": "text"
+        },
+        {
+          "field_name": "halon_bagg_ind",
+          "display_name_hebrew": "חלון בגג",
+          "display": true,
+          "type": "boolean"
+        },
+        {
+          "field_name": "mazgan_ind",
+          "display_name_hebrew": "מזגן",
+          "display": true,
+          "type": "boolean"
+        },
+        {
+          "field_name": "hege_koah_ind",
+          "display_name_hebrew": "הגה כוח",
+          "display": true,
+          "type": "boolean"
+        },
+        {
+          "field_name": "galgaley_sagsoget_kala_ind",
+          "display_name_hebrew": "גלגלי סגסוגת קלה",
+          "display": true,
+          "type": "boolean"
+        },
+        {
+          "field_name": "argaz_ind",
+          "display_name_hebrew": "ארגז",
+          "display": true,
+          "type": "boolean"
+        },
+        {
+          "field_name": "matzlemat_reverse_ind",
+          "display_name_hebrew": "מצלמת רוורס",
+          "display": true,
+          "type": "boolean"
+        },
+        {
+          "field_name": "__custom_total_vehicles",
+          "display_name_hebrew": "סה\"כ רכבים מדגם זה בכביש",
+          "is_custom": true,
+          "display": true,
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name_hebrew": "בטיחות",
+      "name_english": "Safety",
+      "initially_expanded": false,
+      "fields": [
+        {
+          "field_name": "abs_ind",
+          "display_name_hebrew": "ABS",
+          "display": true,
+          "type": "boolean"
+        },
+        {
+          "field_name": "bakarat_yatzivut_ind",
+          "display_name_hebrew": "בקרת יציבות",
+          "display": true,
+          "type": "boolean"
+        },
+        {
+          "field_name": "maarechet_ezer_labalam_ind",
+          "display_name_hebrew": "מערכת עזר לבלימה",
+          "display": true,
+          "type": "boolean"
+        },
+        {
+          "field_name": "bakarat_shyut_adaptivit_ind",
+          "display_name_hebrew": "בקרת שיוט אדפטיבית",
+          "display": true,
+          "type": "boolean"
+        },
+        {
+          "field_name": "bakarat_stiya_menativ_ind",
+          "display_name_hebrew": "בקרת סטייה מנתיב",
+          "display": true,
+          "type": "boolean"
+        },
+        {
+          "field_name": "bakarat_stiya_activ_s",
+          "display_name_hebrew": "בקרת סטייה אקטיבית",
+          "display": true,
+          "type": "boolean"
+        },
+        {
+          "field_name": "hayshaney_hagorot_ind",
+          "display_name_hebrew": "חיישני חגורות",
+          "display": true,
+          "type": "boolean"
+        },
+        {
+          "field_name": "hayshaney_lahatz_avir_batzmigim_ind",
+          "display_name_hebrew": "חיישני לחץ אוויר בצמיגים",
+          "display": true,
+          "type": "boolean"
+        },
+        {
+          "field_name": "zihuy_holchey_regel_ind",
+          "display_name_hebrew": "זיהוי הולכי רגל",
+          "display": true,
+          "type": "boolean"
+        },
+        {
+          "field_name": "zihuy_rechev_do_galgali",
+          "display_name_hebrew": "זיהוי רכב דו גלגלי",
+          "display": true,
+          "type": "boolean"
+        },
+        {
+          "field_name": "blimat_hirum_lifnei_holhei_regel_ofanaim",
+          "display_name_hebrew": "בלימת חירום לפני הולכי רגל ואופנים",
+          "display": true,
+          "type": "boolean"
+        },
+        {
+          "field_name": "blima_otomatit_nesia_leahor",
+          "display_name_hebrew": "בלימה אוטומטית נסיעה לאחור",
+          "display": true,
+          "type": "boolean"
+        },
+        {
+          "field_name": "zihuy_tamrurey_tnua_ind",
+          "display_name_hebrew": "זיהוי תמרורי תנועה",
+          "display": true,
+          "type": "boolean"
+        },
+        {
+          "field_name": "bakarat_mehirut_isa",
+          "display_name_hebrew": "בקרת מהירות חכמה (ISA)",
+          "display": true,
+          "type": "boolean"
+        },
+        {
+          "field_name": "shlita_automatit_beorot_gvohim_ind",
+          "display_name_hebrew": "שליטה אוטומטית באורות גבוהים",
+          "display": true,
+          "type": "boolean"
+        },
+        {
+          "field_name": "nitur_merhak_milfanim_ind",
+          "display_name_hebrew": "ניטור מרחק מלפנים",
+          "display": true,
+          "type": "boolean"
+        },
+        {
+          "field_name": "hitnagshut_cad_shetah_met",
+          "display_name_hebrew": "התנגשות קדמית שטח מת",
+          "display": false,
+          "type": "boolean"
+        },
+        {
+          "field_name": "zihuy_beshetah_nistar_ind",
+          "display_name_hebrew": "זיהוי בשטח נסתר",
+          "display": true,
+          "type": "boolean"
+        },
+        {
+          "field_name": "zihuy_matzav_hitkarvut_mesukenet_ind",
+          "display_name_hebrew": "זיהוי מצב התקרבות מסוכנת",
+          "display": true,
+          "type": "boolean"
+        },
+        {
+          "field_name": "nikud_betihut",
+          "display_name_hebrew": "ניקוד בטיחות",
+          "display": true,
+          "type": "float_one_decimal"
+        },
+        {
+          "field_name": "ramat_eivzur_betihuty",
+          "display_name_hebrew": "רמת אבזור בטיחותי",
+          "display": true,
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name_hebrew": "סביבה",
+      "name_english": "Environment",
+      "initially_expanded": false,
+      "fields": [
+        {
+          "field_name": "kvutzat_zihum",
+          "display_name_hebrew": "קבוצת זיהום",
+          "display": true,
+          "type": "text"
+        },
+        {
+          "field_name": "madad_yarok",
+          "display_name_hebrew": "מדד ירוק",
+          "display": true,
+          "type": "number"
+        },
+        {
+          "field_name": "CO2_WLTP",
+          "display_name_hebrew": "CO2 (WLTP)",
+          "display": true,
+          "type": "number"
+        },
+        {
+          "field_name": "NOX_WLTP",
+          "display_name_hebrew": "NOX (WLTP)",
+          "display": true,
+          "type": "number"
+        },
+        {
+          "field_name": "CO_WLTP",
+          "display_name_hebrew": "CO (WLTP)",
+          "display": true,
+          "type": "number"
+        },
+        {
+          "field_name": "HC_WLTP",
+          "display_name_hebrew": "HC (WLTP)",
+          "display": true,
+          "type": "number"
+        },
+        {
+          "field_name": "PM_WLTP",
+          "display_name_hebrew": "PM (WLTP)",
+          "display": true,
+          "type": "number"
+        },
+        {
+          "field_name": "tzrihat_delek_ironit",
+          "display_name_hebrew": "צריכת דלק עירונית",
+          "display": true,
+          "type": "number"
+        },
+        {
+          "field_name": "tzrihat_delek_kvish_huz",
+          "display_name_hebrew": "צריכת דלק כביש חוץ",
+          "display": true,
+          "type": "number"
+        },
+        {
+          "field_name": "tzrihat_delek_meshuleshet",
+          "display_name_hebrew": "צריכת דלק משולבת",
+          "display": true,
+          "type": "number"
+        },
+        {
+          "field_name": "tevah_hashmalit_wltp",
+          "display_name_hebrew": "טווח חשמלי (WLTP)",
+          "display": true,
+          "type": "number"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name_hebrew": "היסטוריית בעלויות",
+      "name_english": "Ownership History",
+      "initially_expanded": false,
+      "fields": []
+    }
+  ]
+}

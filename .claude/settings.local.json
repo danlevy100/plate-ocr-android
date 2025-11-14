@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gradlew:*)",
+      "Bash(.gradlew.bat:*)",
+      "Bash(wsl ls:*)",
+      "Bash(wsl.exe ls:*)",
+      "Bash(where wsl.exe)",
+      "Bash(wsl.exe -e ls:*)",
+      "Bash(wsl.exe pwd:*)",
+      "Bash(\"C:\\Windows\\System32\\wsl.exe\" ls /home/dan/)",
+      "Bash(wsl.exe -- ls:*)",
+      "Bash(MSYS_NO_PATHCONV=1 wsl.exe ls:*)",
+      "Bash(MSYS_NO_PATHCONV=1 wsl.exe cat:*)",
+      "Bash(MSYS_NO_PATHCONV=1 wsl.exe head:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
