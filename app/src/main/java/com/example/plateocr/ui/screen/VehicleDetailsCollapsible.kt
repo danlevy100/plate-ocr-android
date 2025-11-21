@@ -1,8 +1,6 @@
 package com.example.plateocr.ui.screen
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -36,7 +34,7 @@ fun VehicleDetailsTab(vehicleData: AggregateVehicleData?) {
             return@Column
         }
 
-        val vehicle = vehicleData.vehicle!!
+        val vehicle = vehicleData.vehicle
 
         // Vehicle name header (always visible) - RTL support
         CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
@@ -401,6 +399,82 @@ fun VehicleDetailsTab(vehicleData: AggregateVehicleData?) {
             }
         }
 
+        // Section 9: לוי יצחק (Levi Itzhak)
+        // Only wait for base data (step 12), adjusted price (step 13) will appear when ready
+        CollapsibleSection(
+            title = "לוי יצחק",
+            isLoading = vehicleData.isLoadingLeviItzhak,
+            initiallyExpanded = false
+        ) {
+            val leviData = vehicleData.leviItzhak
+            if (leviData == null) {
+                Text(
+                    "אין מידע מלוי יצחק",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.secondary
+                )
+            } else {
+                // Create fields map from Levi Itzhak data
+                val leviFields = mutableMapOf<String, Any?>()
+
+                // Vehicle identification
+                leviData.id?.let { leviFields["__levi_kod"] = it }
+                leviData.getVin()?.let { leviFields["__levi_vin"] = it }
+
+                // Vehicle details
+                leviData.manufacturerName?.let { leviFields["__levi_manufacturer"] = it }
+                leviData.name?.let { leviFields["__levi_model_name"] = it }
+                leviData.getTrimLevelString()?.let { leviFields["__levi_trim_level"] = it }
+
+                // Original price (base estimate without km/owners)
+                leviData.getMarketPrice()?.let { leviFields["__levi_market_price_original"] = "₪${String.format("%,d", it)}" }
+
+                // Adjusted price (calculated with actual km and owners from gov API)
+                vehicleData.leviItzhakPrice?.getPrice()?.let { leviFields["__levi_market_price_adjusted"] = "₪${String.format("%,d", it)}" }
+
+                // Debug info: show km, owners, and ownersArr used for price calculation
+                vehicleData.kmAndFlags?.odometer?.let { leviFields["__levi_calc_km"] = "${String.format("%,d", it)} ק\"מ" }
+                vehicleData.ownershipHistory?.count { it.ownershipType != "סוחר" }?.let { leviFields["__levi_calc_owners"] = it.toString() }
+                vehicleData.leviItzhakOwnersArr?.takeIf { it.isNotEmpty() }?.let { arr ->
+                    leviFields["__levi_calc_owners_arr"] = arr.joinToString(" ← ") { lineIdToHebrew(it) }
+                }
+
+                // Vehicle specs
+                leviData.getColor()?.let { leviFields["__levi_color"] = it }
+                leviData.engineVolume?.let { leviFields["__levi_engine_volume"] = "${String.format("%,d", it)} סמ\"ק" }
+                leviData.weight?.let { leviFields["__levi_weight"] = "${String.format("%,d", it)} ק\"ג" }
+
+                // Test and ownership info
+                leviData.getLastTestKm()?.let { leviFields["__levi_last_test_km"] = "${String.format("%,d", it)} ק\"מ" }
+                leviData.getCurrentOwnerType()?.let { leviFields["__levi_current_owner"] = it }
+                leviData.aliyaDate?.let { leviFields["__levi_aliya_date"] = it }
+
+                // Ownership history summary
+                leviData.ownershipHistory?.let { history ->
+                    if (history.isNotEmpty()) {
+                        val historyStr = history.mapNotNull { entry ->
+                            val date = entry.getFormattedDate() ?: entry.date
+                            val type = entry.type
+                            if (date != null && type != null) "$date: $type" else null
+                        }.joinToString(" ← ")
+                        if (historyStr.isNotEmpty()) {
+                            leviFields["__levi_ownership_history"] = historyStr
+                        }
+                    }
+                }
+
+                if (leviFields.isNotEmpty()) {
+                    MixedFieldTable(apiFields = emptyMap(), customFields = leviFields.mapValues { it.value.toString() })
+                } else {
+                    Text(
+                        "אין מידע זמין",
+                        style = MaterialTheme.typography.bodySmall,
+                        color = MaterialTheme.colorScheme.secondary
+                    )
+                }
+            }
+        }
+
         // Loading indicator at bottom
         if (!vehicleData.isFullyLoaded()) {
             Spacer(modifier = Modifier.height(16.dp))
@@ -411,11 +485,35 @@ fun VehicleDetailsTab(vehicleData: AggregateVehicleData?) {
                 CircularProgressIndicator(modifier = Modifier.size(16.dp))
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
-                    "טוען נתונים נוספים... (${vehicleData.getLoadedSectionsCount()}/11 מקורות)",
+                    "טוען נתונים נוספים... (${vehicleData.getLoadedSectionsCount()}/13 מקורות)",
                     style = MaterialTheme.typography.bodySmall,
                     color = MaterialTheme.colorScheme.secondary
                 )
             }
         }
+    }
+}
+
+/**
+ * Convert Levi Itzhak lineID string to Hebrew ownership type.
+ * e.g., "0-2" -> "פרטי", "35-2-12" -> "חברה"
+ */
+private fun lineIdToHebrew(lineIdString: String): String {
+    // Extract lineID from format "lineID-2" or "lineID-2-time"
+    val lineId = lineIdString.split("-").firstOrNull()?.toIntOrNull() ?: return lineIdString
+
+    return when (lineId) {
+        0 -> "פרטי"
+        26 -> "השכרה"
+        35 -> "חברה"
+        99 -> "ליסינג פרטי"
+        62 -> "ליסינג לחברה"
+        90 -> "ליסינג מימוני"
+        91 -> "ליסינג מימוני לחברה"
+        30 -> "ביה\"ס נהיגה"
+        31 -> "מונית"
+        38 -> "קיבוץ/צה\"ל"
+        41 -> "עירייה/ממשלה"
+        else -> lineIdString
     }
 }

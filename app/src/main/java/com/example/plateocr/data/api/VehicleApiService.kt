@@ -49,7 +49,8 @@ interface VehicleApiService {
         @Query("resource_id") resourceId: String,
         @Query("filters") filters: String? = null,
         @Query("q") q: String? = null,
-        @Query("limit") limit: Int = 1
+        @Query("limit") limit: Int = 1,
+        @Query("sort") sort: String? = null
     ): Response<GenericGovApiResponse>
 
     companion object {

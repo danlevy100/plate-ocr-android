@@ -46,7 +46,6 @@ class PlateDetector(private val context: Context) : AutoCloseable {
         // YOLO output format: [1, 5, 8400]
         // 5 = [x_center, y_center, width, height, confidence]
         // 8400 = number of anchor points
-        const val NUM_OUTPUTS = 5
         const val NUM_ANCHORS = 8400
     }
 
@@ -249,14 +248,14 @@ class PlateDetector(private val context: Context) : AutoCloseable {
 
             val boundingBox = RectF(left, top, right, bottom)
 
-                detections.add(
-                    DetectionResult(
-                        boundingBox = boundingBox,
-                        confidence = confidence,
-                        imageWidth = originalWidth,
-                        imageHeight = originalHeight
-                    )
+            detections.add(
+                DetectionResult(
+                    boundingBox = boundingBox,
+                    confidence = confidence,
+                    imageWidth = originalWidth,
+                    imageHeight = originalHeight
                 )
+            )
             }
 
             android.util.Log.d("PlateDetector", "Found ${detections.size} detections above threshold")

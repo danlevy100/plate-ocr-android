@@ -4,7 +4,6 @@ import android.Manifest
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Matrix
-import android.net.Uri
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
@@ -17,22 +16,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.core.content.ContextCompat
 import androidx.core.content.PermissionChecker
 import androidx.exifinterface.media.ExifInterface
 import com.example.plateocr.data.model.OcrResult
-import com.example.plateocr.data.model.VehicleInfo
 import com.example.plateocr.data.model.gov.AggregateVehicleData
 import com.example.plateocr.data.repository.VehicleRepository
 import com.example.plateocr.ml.detector.PlateDetector
 import com.example.plateocr.ml.ocr.OcrEngine
-import com.example.plateocr.ui.components.FieldTable
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -258,10 +252,10 @@ fun CameraScreen(modifier: Modifier = Modifier) {
         OutlinedTextField(
             value = manualPlateNumber,
             onValueChange = { newValue ->
-                // Only allow digits and limit to 8 characters
-                if (newValue.all { it.isDigit() } && newValue.length <= 8) {
-                    manualPlateNumber = newValue
-                }
+                // Allow digits and limit to 8 characters
+                // Filter out non-digits and take only first 8 characters
+                val filteredValue = newValue.filter { it.isDigit() }.take(8)
+                manualPlateNumber = filteredValue
             },
             label = { Text("Enter Plate Number") },
             placeholder = { Text("7-8 digits") },
