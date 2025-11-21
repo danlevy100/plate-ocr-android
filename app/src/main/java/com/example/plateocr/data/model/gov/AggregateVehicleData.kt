@@ -104,4 +104,12 @@ data class AggregateVehicleData(
         if (leviItzhakPrice != null) count++
         return count
     }
+
+    /**
+     * Get the best available market price estimate
+     * Prefers Levi Itzhak price estimate (with km/owners), falls back to base estimate
+     */
+    fun getMarketPrice(): Int? {
+        return leviItzhakPrice?.getPrice() ?: leviItzhak?.getMarketPrice()
+    }
 }
