@@ -606,6 +606,116 @@
       "name_english": "Ownership History",
       "initially_expanded": false,
       "fields": []
+    },
+    {
+      "id": 9,
+      "name_hebrew": "לוי יצחק",
+      "name_english": "Levi Itzhak",
+      "initially_expanded": false,
+      "fields": [
+        {
+          "field_name": "__levi_kod",
+          "display_name_hebrew": "קוד דגם",
+          "display": true,
+          "type": "text"
+        },
+        {
+          "field_name": "__levi_vin",
+          "display_name_hebrew": "מספר שלדה (VIN)",
+          "display": false,
+          "type": "text"
+        },
+        {
+          "field_name": "__levi_manufacturer",
+          "display_name_hebrew": "יצרן",
+          "display": true,
+          "type": "text"
+        },
+        {
+          "field_name": "__levi_model_name",
+          "display_name_hebrew": "דגם",
+          "display": true,
+          "type": "text"
+        },
+        {
+          "field_name": "__levi_trim_level",
+          "display_name_hebrew": "רמת גימור",
+          "display": true,
+          "type": "text"
+        },
+        {
+          "field_name": "__levi_market_price_original",
+          "display_name_hebrew": "שווי שוק (בסיס)",
+          "display": true,
+          "type": "text"
+        },
+        {
+          "field_name": "__levi_market_price_adjusted",
+          "display_name_hebrew": "שווי שוק (מותאם)",
+          "display": true,
+          "type": "text"
+        },
+        {
+          "field_name": "__levi_calc_km",
+          "display_name_hebrew": "ק\"מ לחישוב",
+          "display": true,
+          "type": "text"
+        },
+        {
+          "field_name": "__levi_calc_owners",
+          "display_name_hebrew": "ידיים לחישוב",
+          "display": true,
+          "type": "text"
+        },
+        {
+          "field_name": "__levi_calc_owners_arr",
+          "display_name_hebrew": "סוגי בעלויות",
+          "display": true,
+          "type": "text"
+        },
+        {
+          "field_name": "__levi_color",
+          "display_name_hebrew": "צבע (מטסט)",
+          "display": false,
+          "type": "text"
+        },
+        {
+          "field_name": "__levi_last_test_km",
+          "display_name_hebrew": "קילומטרים בטסט אחרון",
+          "display": true,
+          "type": "number"
+        },
+        {
+          "field_name": "__levi_current_owner",
+          "display_name_hebrew": "סוג בעלות נוכחי",
+          "display": false,
+          "type": "text"
+        },
+        {
+          "field_name": "__levi_engine_volume",
+          "display_name_hebrew": "נפח מנוע (סמ\"ק)",
+          "display": false,
+          "type": "number"
+        },
+        {
+          "field_name": "__levi_weight",
+          "display_name_hebrew": "משקל (ק\"ג)",
+          "display": false,
+          "type": "number"
+        },
+        {
+          "field_name": "__levi_aliya_date",
+          "display_name_hebrew": "תאריך עלייה לכביש",
+          "display": false,
+          "type": "text"
+        },
+        {
+          "field_name": "__levi_ownership_history",
+          "display_name_hebrew": "היסטוריית בעלויות",
+          "display": true,
+          "type": "text"
+        }
+      ]
     }
   ]
 }

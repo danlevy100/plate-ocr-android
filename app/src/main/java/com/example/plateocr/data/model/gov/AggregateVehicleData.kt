@@ -1,16 +1,18 @@
 package com.example.plateocr.data.model.gov
 
 import com.example.plateocr.data.model.VehicleInfo
+import com.example.plateocr.data.model.leviitzhak.LeviCarPrice
+import com.example.plateocr.data.model.leviitzhak.LeviItzhakCarData
 
 /**
- * Comprehensive vehicle data aggregated from multiple government sources.
+ * Comprehensive vehicle data aggregated from multiple government sources + Levi Itzhak.
  * Data is loaded progressively as API calls complete.
  */
 data class AggregateVehicleData(
     // Basic vehicle info (always loaded first)
     val vehicle: VehicleInfo? = null,
 
-    // Progressive data sources
+    // Progressive data sources (Government APIs)
     val ownershipHistory: List<OwnershipHistory>? = null,
     val wltpSpecs: WltpSpecs? = null,
     val recalls: List<VehicleRecall>? = null,
@@ -23,6 +25,14 @@ data class AggregateVehicleData(
     val plateUpdates: List<PlateUpdate>? = null,
     val vinWmiMirror: VinWmiMirror? = null,
 
+    // Levi Itzhak data (12th source - market price, VIN, enhanced ownership)
+    val leviItzhak: LeviItzhakCarData? = null,
+
+    // Levi Itzhak price estimate (13th source - calculated with km and owners from gov API)
+    val leviItzhakPrice: LeviCarPrice? = null,
+    // Owners array used for price calculation (e.g., ["0-2", "0-2"] for 2 private owners)
+    val leviItzhakOwnersArr: List<String>? = null,
+
     // Loading states for each section
     val isLoadingOwnershipHistory: Boolean = false,
     val isLoadingWltpSpecs: Boolean = false,
@@ -33,7 +43,9 @@ data class AggregateVehicleData(
     val isLoadingDisabledTag: Boolean = false,
     val isLoadingEuType: Boolean = false,
     val isLoadingPlateUpdates: Boolean = false,
-    val isLoadingVinWmi: Boolean = false
+    val isLoadingVinWmi: Boolean = false,
+    val isLoadingLeviItzhak: Boolean = false,
+    val isLoadingLeviItzhakPrice: Boolean = false
 ) {
     /**
      * Get MSRP from either importer price or vehicle's horaat_rishum field
@@ -68,11 +80,13 @@ data class AggregateVehicleData(
                !isLoadingDisabledTag &&
                !isLoadingEuType &&
                !isLoadingPlateUpdates &&
-               !isLoadingVinWmi
+               !isLoadingVinWmi &&
+               !isLoadingLeviItzhak &&
+               !isLoadingLeviItzhakPrice
     }
 
     /**
-     * Returns the number of data sources that have been loaded
+     * Returns the number of data sources that have been loaded (max 13)
      */
     fun getLoadedSectionsCount(): Int {
         var count = if (vehicle != null) 1 else 0
@@ -86,6 +100,8 @@ data class AggregateVehicleData(
         if (euTypeApprovalA != null || euTypeApprovalB != null) count++
         if (plateUpdates != null) count++
         if (vinWmiMirror != null) count++
+        if (leviItzhak != null) count++
+        if (leviItzhakPrice != null) count++
         return count
     }
 }

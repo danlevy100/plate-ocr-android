@@ -21,8 +21,8 @@ import com.example.plateocr.util.FieldConfigManager
 @Composable
 fun MixedFieldTable(
     apiFields: Map<String, Any?>,
-    customFields: Map<String, String> = emptyMap(),
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    customFields: Map<String, String> = emptyMap()
 ) {
     val context = LocalContext.current
     FieldTranslations.load(context)
@@ -55,19 +55,30 @@ fun MixedFieldTable(
 
             // Add custom fields with their order from config
             customFields.forEach { (name, value) ->
-                // Try to find order by looking for __custom_ prefixed field
-                val customFieldKey = "__custom_" + when(name) {
-                    "יד" -> "yad"
-                    "מחיר יבואן (MSRP)" -> "msrp"
-                    "שווי שימוש חודשי" -> "use_value"
-                    "תו נכה" -> "disabled_tag"
-                    "ריקולים" -> "recalls"
-                    "סה״כ רכבים מדגם זה בכביש" -> "total_vehicles"
-                    else -> name
+                // Determine the field key for config lookup
+                val fieldKey = when {
+                    // Levi Itzhak fields already have __levi_ prefix
+                    name.startsWith("__levi_") -> name
+                    // Other custom fields need __custom_ prefix
+                    else -> "__custom_" + when(name) {
+                        "יד" -> "yad"
+                        "מחיר יבואן (MSRP)" -> "msrp"
+                        "שווי שימוש חודשי" -> "use_value"
+                        "תו נכה" -> "disabled_tag"
+                        "ריקולים" -> "recalls"
+                        "סה״כ רכבים מדגם זה בכביש" -> "total_vehicles"
+                        else -> name
+                    }
                 }
+
+                // Check if field should be displayed
+                if (!FieldConfigManager.shouldDisplay(fieldKey)) {
+                    return@forEach
+                }
+
                 // Use display name from config if available, otherwise use the original name
-                val displayName = FieldConfigManager.getDisplayName(customFieldKey)
-                allEntries.add(Triple(displayName, value, FieldConfigManager.getFieldOrder(customFieldKey)))
+                val displayName = FieldConfigManager.getDisplayName(fieldKey)
+                allEntries.add(Triple(displayName, value, FieldConfigManager.getFieldOrder(fieldKey)))
             }
 
             // Sort by order and display
@@ -156,12 +167,12 @@ private fun formatApiValue(fieldName: String, value: Any?): String {
 
             // Float with one decimal place (e.g., safety score)
             if (FieldConfigManager.isFloatOneDecimal(fieldName)) {
-                return String.format("%.1f", value.toDouble())
+                return String.format(java.util.Locale.US, "%.1f", value.toDouble())
             }
 
             // Mileage: add comma separators for numbers > 999
             if (fieldName == "kilometer_test_aharon" && value.toLong() > 999) {
-                return String.format("%,d", value.toLong())
+                return String.format(java.util.Locale.US, "%,d", value.toLong())
             }
 
             // All other numbers: display as integers without .0 suffix
@@ -196,7 +207,7 @@ private fun formatApiValue(fieldName: String, value: Any?): String {
                             val month = value.substring(4, 6)
                             val day = value.substring(6, 8)
                             "$year/$month/$day"
-                        } catch (e: Exception) {
+                        } catch (_: Exception) {
                             value
                         }
                     }
@@ -206,7 +217,7 @@ private fun formatApiValue(fieldName: String, value: Any?): String {
                             val year = value.substring(0, 4)
                             val month = value.substring(4, 6)
                             "$year-$month"
-                        } catch (e: Exception) {
+                        } catch (_: Exception) {
                             value
                         }
                     }

@@ -37,6 +37,9 @@ mlkit = "16.0.0"
 # Coroutines
 coroutines = "1.7.3"
 
+# KSP for Moshi code generation
+ksp = "2.0.21-1.0.28"
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -92,4 +95,5 @@ kotlinx-coroutines-play-services = { group = "org.jetbrains.kotlinx", name = "ko
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 

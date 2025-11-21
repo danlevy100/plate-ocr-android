@@ -1,6 +1,5 @@
 package com.example.plateocr.data.api
 
-import com.example.plateocr.data.model.gov.GovApiResponse
 import com.example.plateocr.data.model.gov.GenericGovApiResponse
 import retrofit2.Response
 import retrofit2.http.GET
@@ -18,29 +17,6 @@ import retrofit2.http.Query
 interface VehicleApiService {
 
     /**
-     * Looks up vehicle by license plate from gov database.
-     *
-     * Example query:
-     * https://data.gov.il/api/3/action/datastore_search?
-     *   resource_id=053cea08-09bc-40ec-8f7a-156f0677aff3&
-     *   filters={"mispar_rechev":"45774301"}&
-     *   limit=1
-     *
-     * @param resourceId The CKAN resource ID (default: license plate resource)
-     * @param filters JSON filter string (e.g., {"mispar_rechev":"45774301"})
-     * @param q Full-text search query (alternative to filters, used for recalls)
-     * @param limit Maximum number of results (default: 1)
-     * @return API response containing vehicle records
-     */
-    @GET("datastore_search")
-    suspend fun lookupVehicle(
-        @Query("resource_id") resourceId: String = LICENSE_PLATE_RESOURCE_ID,
-        @Query("filters") filters: String? = null,
-        @Query("q") q: String? = null,
-        @Query("limit") limit: Int = 1
-    ): Response<GovApiResponse>
-
-    /**
      * Generic lookup for resources with dynamic schemas.
      * Returns raw JSON maps that can be manually parsed.
      */
@@ -49,7 +25,8 @@ interface VehicleApiService {
         @Query("resource_id") resourceId: String,
         @Query("filters") filters: String? = null,
         @Query("q") q: String? = null,
-        @Query("limit") limit: Int = 1
+        @Query("limit") limit: Int = 1,
+        @Query("sort") sort: String? = null
     ): Response<GenericGovApiResponse>
 
     companion object {

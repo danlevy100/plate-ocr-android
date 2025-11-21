@@ -12,7 +12,16 @@
       "Bash(wsl.exe -- ls:*)",
       "Bash(MSYS_NO_PATHCONV=1 wsl.exe ls:*)",
       "Bash(MSYS_NO_PATHCONV=1 wsl.exe cat:*)",
-      "Bash(MSYS_NO_PATHCONV=1 wsl.exe head:*)"
+      "Bash(MSYS_NO_PATHCONV=1 wsl.exe head:*)",
+      "Bash(MSYS_NO_PATHCONV=1 wsl.exe grep:*)",
+      "Bash(./gradlew:*)",
+      "WebSearch",
+      "WebFetch(domain:mvnrepository.com)",
+      "WebFetch(domain:github.com)",
+      "Bash(MSYS_NO_PATHCONV=1 wsl.exe find:*)",
+      "Bash(MSYS_NO_PATHCONV=1 wsl.exe bash:*)",
+      "Bash(curl:*)",
+      "Bash(python3:*)"
     ],
     "deny": [],
     "ask": []
